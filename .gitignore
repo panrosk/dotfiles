@@ -1,0 +1,5 @@
+*.env
+index.html
+index.js
+index.php
+init.lua
