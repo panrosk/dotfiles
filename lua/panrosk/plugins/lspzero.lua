@@ -1,7 +1,7 @@
 local lsp_zero = require("lsp-zero")
 require("lsp-zero")
 require("lspconfig").intelephense.setup({})
-
+local rustacean = require("rustaceanvim")
 lsp_zero.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
@@ -42,6 +42,7 @@ require("luasnip.loaders.from_vscode").lazy_load({ paths = "./lua/panrosk/plugin
 require("luasnip.loaders.from_vscode").lazy_load({ paths = "./lua/panrosk/plugins/snips/sveltekit-snippets" })
 require("luasnip.loaders.from_vscode").lazy_load({ paths = "./lua/panrosk/plugins/snips/vscode-golang-snippets" })
 
+require("luasnip.loaders.from_vscode").lazy_load({ paths = "./lua/panrosk/plugins/snips/vscode-Java-Snippets" })
 require("luasnip.loaders.from_vscode").lazy_load({ paths = "./lua/panrosk/plugins/snips/lit-snippets" })
 require("luasnip.loaders.from_vscode").lazy_load({ paths = "./lua/panrosk/plugins/snips/vue-vscode-snippets" })
 cmp.setup({
@@ -103,7 +104,8 @@ require("lspconfig").sourcekit.setup({
 require('mason-lspconfig').setup_handlers {
   ['rust_analyzer'] = function() end,
 }
-vim.g.rustaceanvim = {
+
+rustaceanvim = {
   server = {
     cmd = function()
       local mason_registry = require('mason-registry')
