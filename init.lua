@@ -1,11 +1,9 @@
-vim.cmd [[set packpath^=~/.local/share/nvim/site]]
 require("panrosk.packer")
 require("panrosk.keymaps")
 
 require("panrosk.python")
 require("panrosk.plugins.telescope")
 require("panrosk.plugins.tresitter")
-require("panrosk.plugins.nvim-three")
 require("panrosk.set")
 require("panrosk.plugins.noice")
 require("lualine").setup()

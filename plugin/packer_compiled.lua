@@ -137,6 +137,11 @@ _G.packer_plugins = {
     path = "/Users/oscarfuentes/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
     url = "https://github.com/projekt0n/github-nvim-theme"
   },
+  ["gruvbox.nvim"] = {
+    loaded = true,
+    path = "/Users/oscarfuentes/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
+    url = "https://github.com/ellisonleao/gruvbox.nvim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/Users/oscarfuentes/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
@@ -264,15 +269,26 @@ _G.packer_plugins = {
     path = "/Users/oscarfuentes/.local/share/nvim/site/pack/packer/start/rustaceanvim",
     url = "https://github.com/mrcjkb/rustaceanvim"
   },
-  ["telescope-fugitive.nvim"] = {
+  ["telescope-fzf-native.nvim"] = {
     loaded = true,
-    path = "/Users/oscarfuentes/.local/share/nvim/site/pack/packer/start/telescope-fugitive.nvim",
-    url = "https://github.com/nvim-telescope/telescope-fugitive.nvim"
+    path = "/Users/oscarfuentes/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
+    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/oscarfuentes/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["todo-comments.nvim"] = {
+    loaded = true,
+    path = "/Users/oscarfuentes/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
+    url = "https://github.com/folke/todo-comments.nvim"
+  },
+  ["tokyonight.nvim"] = {
+    config = { "\27LJ\2\nz\0\0\3\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\4\0009\0\5\0'\2\6\0B\0\2\1K\0\1\0\27colorscheme tokyonight\bcmd\bvim\1\0\1\nstyle\nnight\nsetup\15tokyonight\frequire\0" },
+    loaded = true,
+    path = "/Users/oscarfuentes/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["vim-be-good"] = {
     loaded = true,
@@ -297,26 +313,30 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: obsidian.nvim
-time([[Config for obsidian.nvim]], true)
-try_loadstring("\27LJ\2\nº\1\0\0\5\0\6\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0005\4\3\0>\4\1\3=\3\5\2B\0\2\1K\0\1\0\15workspaces\1\0\1\15workspaces\0\1\0\2\tpath7/Users/oscarfuentes/documents/programming learning\tname\26programmoing learning\nsetup\robsidian\frequire\0", "config", "obsidian.nvim")
-time([[Config for obsidian.nvim]], false)
 -- Config for: github-nvim-theme
 time([[Config for github-nvim-theme]], true)
 try_loadstring("\27LJ\2\n>\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\17github-theme\frequire\0", "config", "github-nvim-theme")
 time([[Config for github-nvim-theme]], false)
--- Config for: everforest-nvim
-time([[Config for everforest-nvim]], true)
-try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15everforest\frequire\0", "config", "everforest-nvim")
-time([[Config for everforest-nvim]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
-time([[Config for Comment.nvim]], false)
 -- Config for: pomo.nvim
 time([[Config for pomo.nvim]], true)
 try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\tpomo\frequire\0", "config", "pomo.nvim")
 time([[Config for pomo.nvim]], false)
+-- Config for: tokyonight.nvim
+time([[Config for tokyonight.nvim]], true)
+try_loadstring("\27LJ\2\nz\0\0\3\0\a\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\0016\0\4\0009\0\5\0'\2\6\0B\0\2\1K\0\1\0\27colorscheme tokyonight\bcmd\bvim\1\0\1\nstyle\nnight\nsetup\15tokyonight\frequire\0", "config", "tokyonight.nvim")
+time([[Config for tokyonight.nvim]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
+time([[Config for Comment.nvim]], false)
+-- Config for: obsidian.nvim
+time([[Config for obsidian.nvim]], true)
+try_loadstring("\27LJ\2\nº\1\0\0\5\0\6\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0005\4\3\0>\4\1\3=\3\5\2B\0\2\1K\0\1\0\15workspaces\1\0\1\15workspaces\0\1\0\2\tpath7/Users/oscarfuentes/documents/programming learning\tname\26programmoing learning\nsetup\robsidian\frequire\0", "config", "obsidian.nvim")
+time([[Config for obsidian.nvim]], false)
+-- Config for: everforest-nvim
+time([[Config for everforest-nvim]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15everforest\frequire\0", "config", "everforest-nvim")
+time([[Config for everforest-nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

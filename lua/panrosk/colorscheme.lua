@@ -4,9 +4,9 @@ vim.opt.background = "dark" --set this to dark or light
 -- vim.cmd.colorscheme("catppuccin")
 --
 --
-local status, _ = pcall(vim.cmd, "colorscheme catppuccin-mocha")
+local status, _ = pcall(vim.cmd, "colorscheme tokyonight-night")
 
 if not status then
-	print("Colorscheme not found!") -- print error if colorscheme not installed
-	return
+  print("Colorscheme not found!") -- print error if colorscheme not installed
+  return
 end

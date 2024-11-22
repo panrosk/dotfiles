@@ -1,6 +1,8 @@
 local lsp_zero = require("lsp-zero")
 require("lsp-zero")
-require("lspconfig").intelephense.setup({})
+require("lspconfig").intelephense.setup({
+  root_dir = require("lspconfig.util").root_pattern("composer.json", ".git", "package.json")
+})
 local rustacean = require("rustaceanvim")
 lsp_zero.on_attach(function(client, bufnr)
   -- see :help lsp-zero-keybindings
@@ -18,17 +20,20 @@ require("mason-lspconfig").setup({
 
 require("lspconfig").ts_ls.setup({
   on_attach = lsp_zero.default_on_attach,
-  filetypes = { "javascript", "typescript", "typescriptreact", "javascriptreact", "svelte" },
+  filetypes = { "javascript", "typescript", "typescriptreact", "javascriptreact", "svelte", "vue" },
+  root_dir = require("lspconfig.util").root_pattern("tsconfig.json", "jsconfig.json", ".git", "package.json")
 })
 
 require("lspconfig").html.setup({
   on_attach = lsp_zero.default_on_attach,
   filetypes = { "html", "svelte", "liquid", "ejs", "jsx", "tsx", "vue", "php" },
+  root_dir = require("lspconfig.util").root_pattern("index.html", ".git", "package.json")
 })
 
 require("lspconfig").emmet_ls.setup({
   on_attach = lsp_zero.default_on_attach,
   filetypes = { "html", "css", "javascript", "typescript", "svelte", "liquid", "ejs", "jsx", "tsx", "vue", "php" },
+  root_dir = require("lspconfig.util").root_pattern(".git", "package.json", "index.html")
 })
 
 local cmp = require("cmp")
@@ -45,6 +50,7 @@ require("luasnip.loaders.from_vscode").lazy_load({ paths = "./lua/panrosk/plugin
 require("luasnip.loaders.from_vscode").lazy_load({ paths = "./lua/panrosk/plugins/snips/vscode-Java-Snippets" })
 require("luasnip.loaders.from_vscode").lazy_load({ paths = "./lua/panrosk/plugins/snips/lit-snippets" })
 require("luasnip.loaders.from_vscode").lazy_load({ paths = "./lua/panrosk/plugins/snips/vue-vscode-snippets" })
+
 cmp.setup({
   sources = {
     { name = "nvim_lsp" },
@@ -86,6 +92,9 @@ config = function()
     callback = function(args)
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { noremap = true, silent = true })
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, { noremap = true, silent = true })
+      vim.keymap.set("n", "gr", vim.lsp.buf.references, { noremap = true, silent = true })  -- Go to references
+      vim.keymap.set("n", "rn", vim.lsp.buf.rename, { noremap = true, silent = true })      -- Rename symbol
+      vim.keymap.set("n", "ca", vim.lsp.buf.code_action, { noremap = true, silent = true }) -- Code actions
     end,
   })
 end
@@ -117,49 +126,3 @@ rustaceanvim = {
     end,
   },
 }
--- require("lspconfig").emmet_ls.setup({
--- 	on_attach = lsp_zero.default_on_attach,
--- 	filetypes = { "html", "css", "javascript", "typescript", "svelte", "liquid", "ejs", "jsx", "tsx", "vue", "php" },
--- })
---
--- require("lspconfig").tsserver.setup({
--- 	on_attach = lsp_zero.default_on_attach,
--- 	filetypes = { "javascript", "typescript", "typescriptreact", "javascriptreact", "svelte" },
--- })
---
--- require("lspconfig").html.setup({
--- 	on_attach = lsp_zero.default_on_attach,
--- 	filetypes = { "html", "svelte", "liquid", "ejs", "jsx", "tsx", "vue", "php" },
--- })
---
--- print(require("luasnip"))
--- require("luasnip.loaders.from_vscode").lazy_load()
--- local cmp = require("cmp")
--- local cmp_action = require("lsp-zero").cmp_action()
---
--- cmp.setup({
--- 	sources = {
--- 		{ name = "luasnip" },
--- 	},
---
--- 	mapping = cmp.mapping.preset.insert({
--- 		-- `Enter` key to confirm completion
--- 		["<CR>"] = cmp.mapping.confirm({ select = false }),
---
--- 		-- Ctrl+Space to trigger completion menu
--- 		["<C-Space>"] = cmp.mapping.complete(),
---
--- 		-- Navigate between snippet placeholder
--- 		["<C-f>"] = cmp_action.luasnip_jump_forward(),
--- 		["<C-b>"] = cmp_action.luasnip_jump_backward(),
---
--- 		-- Scroll up and down in the completion documentation
--- 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
--- 		["<C-d>"] = cmp.mapping.scroll_docs(4),
--- 	}),
--- 	snippet = {
--- 		expand = function(args)
--- 			require("luasnip").lsp_expand(args.body)
--- 		end,
--- 	},
--- })
