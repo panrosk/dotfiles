@@ -84,7 +84,6 @@ return require("packer").startup(function(use)
   use("purescript-contrib/purescript-vim")
   use("jonsmithers/vim-html-template-literals")
   use("pangloss/vim-javascript")
-  use({ "mrcjkb/rustaceanvim", version = "^5", lazy = false })
 
   -- Mejoras de productividad
   use({
