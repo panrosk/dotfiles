@@ -1,0 +1,6 @@
+indent_type = "Spaces"
+indent_width = 2
+column_width = 80
+quote_style = "PreferSingle" # Usa comillas simples en lugar de dobles
+line_endings = "Unix" # Forza saltos de línea estilo Unix (LF)
+

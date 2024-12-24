@@ -1,0 +1,11 @@
+{
+  "printWidth": 120, // Líneas más anchas
+  "tabWidth": 2, // Tabulación pequeña
+  "useTabs": false, // Usa espacios en lugar de tabs
+  "semi": true, // Usa punto y coma al final de las líneas
+  "singleQuote": true, // Usa comillas simples en lugar de dobles
+  "trailingComma": "all", // Coma final en objetos, arrays, etc.
+  "bracketSpacing": true, // Espacio dentro de los objetos { ejemplo: true }
+  "arrowParens": "always", // Siempre agrega paréntesis a funciones flecha (x) => {}
+  "endOfLine": "lf" // Fija saltos de línea estilo Unix
+}
