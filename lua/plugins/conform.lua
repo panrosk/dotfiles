@@ -20,7 +20,7 @@ return {
           graphql = { "prettier" },
           liquid = { "prettier" },
           lua = { "stylua" },
-          python = { "black" },
+          python = { "ruff" },
           elixir = { "prettier", "mix_format" },
           php = { "phpcbf" },
           swift = { "swift_format" },

@@ -22,10 +22,18 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
   spec = {
     {
-      "AlexvZyl/nordic.nvim",
+      "EdenEast/nightfox.nvim",
       config = function()
-        require('nordic').load()
-        vim.cmd.colorscheme("nordic")
+        require('nightfox').load()
+        vim.cmd.colorscheme("carbonfox")
+      end,
+    },
+
+    {
+      "uga-rosa/utf8.nvim",
+      config = function()
+        -- Carga el módulo utf8 para su uso
+        local utf8 = require("utf8")
       end,
     },
     { import = "plugins" },

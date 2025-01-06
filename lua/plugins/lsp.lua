@@ -178,6 +178,8 @@ return {
       },
     })
 
+    lspconfig.pylint.setup({})
+    lspconfig.ruff.setup({})
 
 
     lspconfig.svelte.setup({})
