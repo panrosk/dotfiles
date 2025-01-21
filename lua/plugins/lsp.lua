@@ -178,9 +178,48 @@ return {
       },
     })
 
-    lspconfig.pylint.setup({})
+    lspconfig.pylsp.setup({
+      settings = {
+        pylsp = {
+          plugins = {
+            pylint = { enabled = false },
+            pyflakes = { enabled = false },
+            flake8 = { enabled = false },
+            mccabe = { enabled = false },
+          },
+        },
+      },
+    })
+
+
     lspconfig.ruff.setup({})
 
+    lspconfig.sonarlint.setup({
+      settings = {
+        sonarlint = {
+          rules = {
+            enable = true,
+          },
+          pathToNodeExecutable = vim.fn.exepath('node'), -- Automáticamente encuentra node
+          analyzers = {
+            python = { enabled = true },
+            javascript = { enabled = true },
+            typescript = { enabled = true },
+            java = { enabled = true },
+            go = { enabled = true },
+            php = { enabled = true }
+          }
+        }
+      },
+      filetypes = {
+        'python',
+        'javascript',
+        'typescript',
+        'java',
+        'go',
+        'php'
+      }
+    })
 
     lspconfig.svelte.setup({})
   end,
