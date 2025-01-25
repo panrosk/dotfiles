@@ -128,6 +128,8 @@ return {
     })
 
     lspconfig.lua_ls.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
       settings = {
         Lua = {
           runtime = {
@@ -152,6 +154,8 @@ return {
     })
 
     lspconfig.ts_ls.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
       init_options = {
         plugins = {
           {
@@ -179,47 +183,24 @@ return {
     })
 
     lspconfig.pylsp.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
       settings = {
-        pylsp = {
-          plugins = {
-            pylint = { enabled = false },
-            pyflakes = { enabled = false },
-            flake8 = { enabled = false },
-            mccabe = { enabled = false },
-          },
-        },
+        pylsp = {},
       },
     })
 
 
-    lspconfig.ruff.setup({})
-
-    lspconfig.sonarlint.setup({
+    lspconfig.ruff.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      root_dir = lspconfig.util.root_pattern("ruff.toml", ".git"),
       settings = {
-        sonarlint = {
-          rules = {
-            enable = true,
-          },
-          pathToNodeExecutable = vim.fn.exepath('node'), -- Automáticamente encuentra node
-          analyzers = {
-            python = { enabled = true },
-            javascript = { enabled = true },
-            typescript = { enabled = true },
-            java = { enabled = true },
-            go = { enabled = true },
-            php = { enabled = true }
-          }
-        }
+        fixAll = false,
+
       },
-      filetypes = {
-        'python',
-        'javascript',
-        'typescript',
-        'java',
-        'go',
-        'php'
-      }
     })
+
 
     lspconfig.svelte.setup({})
   end,
