@@ -13,7 +13,7 @@ return {
           sveltekit = { "prettier" },
           svelte = { "prettier" },
           css = { "prettier" },
-          html = { "prettier" },
+          html = { "prettier", "htmlhint" }, -- Se agregó htmlhint
           json = { "prettier" },
           yaml = { "prettier" },
           markdown = { "prettier" },
@@ -39,10 +39,15 @@ return {
             command = "stylua",
             args = { "--config-path", vim.fn.expand("~/.config/nvim/defaults/stylua.toml") },
           },
+          htmlhint = {
+            command = "htmlhint",
+            args = { "--config", vim.fn.expand("~/.config/nvim/.htmlhintrc") }, -- Se agrega configuración personalizada
+            stdin = true,                                                       -- Permite que el linter procese la entrada estándar
+          },
         },
       })
 
-      -- Create a custom command for formatting
+      -- Crear un comando personalizado para formateo manual
       vim.api.nvim_create_user_command("Format", function(args)
         local range = nil
         if args.count ~= -1 then

@@ -21,6 +21,7 @@ return {
         "lua_ls",
         "gopls",
         "eslint",
+        "htmlhint",
       },
     })
 
@@ -200,6 +201,17 @@ return {
 
       },
     })
+
+    lspconfig.nil_ls.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+    })
+
+    lspconfig.jdtls.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+    })
+
 
 
     lspconfig.svelte.setup({})
