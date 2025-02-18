@@ -46,7 +46,7 @@ return {
       vim.keymap.set("n", "k", vim.lsp.buf.hover, opts)
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
       vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-      vim.keymap.set("n", "rn", vim.lsp.buf.rename, opts)
+      vim.keymap.set("n", "cn", vim.lsp.buf.rename, opts)
       vim.keymap.set("n", "ca", vim.lsp.buf.code_action, opts)
 
       if client.server_capabilities.documentFormattingProvider then
@@ -170,7 +170,20 @@ return {
     })
 
     lspconfig.volar.setup({})
-    lspconfig.gopls.setup({})
+    lspconfig.gopls.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      usePlaceholders = true,    -- Usa placeholders en autocompletado
+      completeUnimported = true, -- Autocompleta paquetes no importados
+      staticcheck = true,        -- Habilita análisis estático con Staticcheck
+      analyses = {
+        unusedparams = true,     -- Detecta parámetros no usados
+        unreachable = true,      -- Encuentra código inalcanzable
+        unusedwrite = true,      -- Detecta variables que nunca se leen después de asignarles un valor
+      },
+      gofumpt = true,
+
+    })
     lspconfig.rust_analyzer.setup({
       on_attach = on_attach,
       capabilities = capabilities,

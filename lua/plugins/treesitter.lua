@@ -25,7 +25,8 @@ return {
         "yaml",
         "python",
         "go",
-        "agda"
+        "agda",
+        "gleam"
       },
 
       sync_install = false,

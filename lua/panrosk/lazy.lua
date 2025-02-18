@@ -22,10 +22,10 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
   spec = {
     {
-      "EdenEast/nightfox.nvim",
+      "scottmckendry/cyberdream.nvim",
       config = function()
-        require('nightfox').load()
-        vim.cmd.colorscheme("carbonfox")
+        require('cyberdream').load()
+        vim.cmd.colorscheme("cyberdream")
       end,
     },
 
