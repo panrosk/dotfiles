@@ -226,7 +226,7 @@ return {
     })
 
 
-
+    lspconfig.gleam.setup({})
     lspconfig.svelte.setup({})
   end,
 }
